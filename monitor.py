@@ -11,14 +11,11 @@ from datetime import date
 
 today = date.today()
 
-address = os.environ.get('Mail_Address')
+address = os.environ.get(#Enter the Enviroment Variable for Email Address saved on PC )
 
-mail_password = os.environ.get('Mail_Login')
+mail_password = os.environ.get(#Enter the Enviroment Variable for Email Login  saved on PC)
 
-api_pass = os.environ.get('EMAIL ADDRESS')
-api_host = os.environ.get('Email Login')
-
-# The os module is optional for users, who wish to hide their email Login.
+# The os module is optional for users, who wish to hide their email address and Login.
 
 
 url = "https://yahoo-finance15.p.rapidapi.com/api/yahoo/ga/topgainers"
@@ -27,7 +24,7 @@ querystring = {"start":"0"}
 
 headers = {'x-rapidapi-host': "yahoo-finance15.p.rapidapi.com",
 
-'x-rapidapi-key': "9efd0f3e52mshd859f5daf34a429p11cb2ajsn2b0e421d681e"
+'x-rapidapi-key': #Enter API key
 }
 
 response = requests.request("GET", url, headers=headers, params=querystring)
@@ -66,7 +63,7 @@ Time = today.strftime("%B %d, %Y")
 
 
 
-contacts = [# The contacts you are trying the mail to ]
+contacts = [# The contacts you intend sending stock data  ]
 
 
 
@@ -101,6 +98,6 @@ for file in Files:
 with smtplib.SMTP(host = 'smtp.gmail.com', port=587) as smtp:
 	smtp.ehlo()
 	smtp.starttls()
-	smtp.login(address, mail_password)
+	smtp.login(# Email address, Email Login)
 	smtp.send_message(email)
 	print('Stock market update sent successfully to your mail')
